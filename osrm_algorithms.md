@@ -66,6 +66,10 @@ Queries là bước cuối cung trong CRP mà quá trình tìm đương đi ng�
 
 Ngoài việc tìm kiếm đường đi tốt nhất (best route), CRP cũng cho phép tìm kiếm các đường đi thay thế (alternative routes).
 
+Trong các dịch vụ bản đồ hiện nay, việc xử lý thông tin traffic là khá phổ biến. Nếu muốn giải quyết bài toán tìm đường đi tốt nhất dữ trên tình trạng giao thông hiện tại, chúng ta cần thay đổi overlay graph mỗi khi có dữ liệu traffic mới. Một cách đơn giản là thực hiện lại bước *metric customization* cho traffic metric. Tuy nhiên trên thực tế chúng ta chỉ cần chạy lại quá trình *customization* cho các cell bị ảnh hưởng bởi dữ liệu traffic mới.
+
+Quá trình *customization* trong CRP là khá nhanh, do vậy việc thay đổi trọng số đồ thị cho một metric nào đó là khả thi. Một điểm nữa là chúng ta chỉ cần tính toán dữ liệu traffic cho các cạnh đồ thị gần với điểm di chuyển hiện tại. Dó dữ liệu traffic có thể đã thay đổi khi chúng ta di chuyển đi xa hơn điểm hiện tại. CRP xử lý việc này bằng cách sử dụng hai hàm mất mát: m
+
 ## Graph representation in OSRM
 
 
