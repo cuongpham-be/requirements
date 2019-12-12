@@ -17,8 +17,12 @@ Một **routing engine** tốt cần đảm bảo các yếu tố sau:
 - Routing engine không chỉ hỗ trợ việc tìm đường ngắn nhất từ một điểm đến một điểm khác (point-to-point shortest paths) mà còn có thể support các tính năng như đưa ra các tuyến đường thay thế (alternative routes).
 - Routing engine cần có performance khá tốt và có thể xử lý các routing query gần như thời gian thực, từ đó không gây ra hiện tượng nghẽn cổ chai cho ứng dụng bản đồ.
 
+Các thuật toán routing của OSRM được xây dựng dựa trên một phương pháp có tên **Customizable Route Planning - CRP**, được phát triển bởi các researcher tại Microsoft.
 
-
+MLD (Multilevel Dijkstra) mà OSRM sử dụng sẽ chỉ là một bước trong CRP. Cụ thể, CRP sẽ gồm các bước chính sau:
+- Metric-independent preprocessing: bước này có nhiệm vụ tiếp nhận cấu trúc liên kết đồ thị gốc (original graph topology) và tạo các các dạng dữ liệu phụ trợ. Cụ thể đồ thị gốc sẽ được chia thành các tế bào (cells) nhỏ hơn và sử dụng nhiều lớp overlay khác nhau. Quá trình tiền xử lý này khá chậm và mất khá nhiều thời gian, tuy nhiên nó không được chạy thường xuyên. Kết quả của quá trình này là chuyển đồi đồ thị gốc thành dạng đồ thị đơn giản hơn với chỉ các dữ liệu cần thiết. Trong phần giới thiệu về OSRM, quá trình này được thực hiện sử dụng hai command là `osrm-extract` và `osrm-partition` với nhiệm vụ chuyển đổi dữ liệu từ OpenStreetMap thành các dạng đồ thị đơn giản hơn.
+- Metric customization: được thực hiện cho từng metric sử dụng đồ thị được tạo ra từ bước 1. Nhiệm vụ của bước này là xây dựng một overlay graph cho từng metric. Dữ liệu cho từng metric sẽ được lưu trữ riêng biệt nhằm phục vụ cho việc hỗ trợ nhiều metric khác nhau tại một thời điểm cho cùng một mạng lưới đường bộ.
+- Queries: sử dụng Multilevel Dijkstra để tính toán các cung đường ngắn nhất ch
 
 
 
