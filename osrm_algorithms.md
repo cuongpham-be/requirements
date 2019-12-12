@@ -4,7 +4,7 @@ Một trong những bài toán cơ bản và quan trọng mà OSRM giải quyế
 
 Trong OSRM có thể chia bài toán trên thành 2 dạng chính:
 - **Direction**: tìm đường đi ngắn nhất giữa hai tọa độ cho trước. OSRM cung cấp **Route Service** để giải quyết vấn đề này.
-- **Distance Matrix**: tính toán thời gian và khoảng cách ngắn nhất giữa các cặp tọa độ cho trước. OSRM cung cấp **Table Service** để giải quyết vấn đề nay.
+- **Distance Matrix**: tính toán thời gian và khoảng cách ngắn nhất giữa các cặp tọa độ cho trước. OSRM cung cấp **Table Service** để giải quyết vấn đề này.
 
 Thuật toán chủ yếu được sử dụng ở đây là *tìm đường đi ngắn nhất* (shortest paths) với dữ liệu đầu vào là *road networks*. Các thuật toán này liên quan chặt chẽ đến lý thuyết đồ thị (graph theory).
 
@@ -39,12 +39,12 @@ Tuy nhiên, khi dữ liệu bản đồ lớn, thuật toán Dijkstra's vẫn c�
 
 Multilevel overlay graph được tạo trong quá trình *graph separators* của CRP sử dụng phương pháp *partition-based overlay graphs*. Hiểu một các đơn giản overlay graphs được xây dựng từ graph gốc bằng cách tạo ra các **clique** (hay các đồ thị con đầy đủ, hay tập hợp các đỉnh của đồ thị con đó). Mục đích của overlay graph là tạo ra các lớp đồ thị đơn giản hơn (có chung đường biên - boundary với đồ thị gốc), sử dụng các shortcuts mà vẫn đảm bảo khoảng cách giữa các đỉnh của đồ thị. Việc tìm đường đi ngắn nhất sẽ được thực hiện trên các lớp overlay đó nhằm tăng tốc độ xử lý của quá trình searching.
 
-Trong phần tiếp theo, các bước trong CRP sẽ được thảo luân. Tuy nhiên chúng ta sẽ không đi quá sau vào vấn đề implementation hoặc các vấn đề toán học bên dưới.
+Trong phần tiếp theo, các bước trong CRP sẽ được thảo luận. Tuy nhiên chúng ta sẽ không đi quá sau vào vấn đề implementation hoặc các vấn đề toán học bên dưới.
 
 ## Metric-independent preprocessing
 Nhiệm vụ của bước này trong CRP:
 - Thực hiện quá trình phân vùng trên nhiều level (multilevel partitioning) trên đồ thị gốc.
-- Xây dựng cấu trúc liên kết (toplogy) của overlay graphs.
+- Xây dựng cấu trúc liên kết (topology) của overlay graphs.
 - Xây dựng các cấu trúc dữ liệu phục vụ cho quá trình *Metric customization*.
 
 Sau khi đã phân vùng trên đồ thị gốc, CRP sẽ tạo các cấu trúc dữ liệu (không phụ thuộc vào các metric) cho overlay graph. Mục đích là việc xây dự cấu trúc liên kết của overlay graph chỉ được thực hiện một lần và có thể sử dụng lại cho nhiều loại metric khá nhau. Trong quá trình thực hiện các *queries*, CRP sẽ thực hiện việc chuyển đổi giữa overlay graph và original graph.
@@ -66,9 +66,9 @@ Queries là bước cuối cung trong CRP mà quá trình tìm đương đi ng�
 
 Ngoài việc tìm kiếm đường đi tốt nhất (best route), CRP cũng cho phép tìm kiếm các đường đi thay thế (alternative routes).
 
-Trong các dịch vụ bản đồ hiện nay, việc xử lý thông tin traffic là khá phổ biến. Nếu muốn giải quyết bài toán tìm đường đi tốt nhất dữ trên tình trạng giao thông hiện tại, chúng ta cần thay đổi overlay graph mỗi khi có dữ liệu traffic mới. Một cách đơn giản là thực hiện lại bước *metric customization* cho traffic metric. Tuy nhiên trên thực tế chúng ta chỉ cần chạy lại quá trình *customization* cho các cell bị ảnh hưởng bởi dữ liệu traffic mới.
+Trong các dịch vụ bản đồ hiện nay, việc xử lý thông tin traffic là khá phổ biến. Nếu muốn giải quyết bài toán tìm đường đi tốt nhất dựa trên tình trạng giao thông hiện tại, chúng ta cần thay đổi overlay graph mỗi khi có dữ liệu traffic mới. Một cách đơn giản là thực hiện lại bước *metric customization* cho traffic metric. Tuy nhiên trên thực tế chúng ta chỉ cần chạy lại quá trình *customization* cho các cell bị ảnh hưởng bởi dữ liệu traffic mới.
 
-Quá trình *customization* trong CRP là khá nhanh, do vậy việc thay đổi trọng số đồ thị cho một metric nào đó là khả thi. Một điểm nữa là chúng ta chỉ cần tính toán dữ liệu traffic cho các cạnh đồ thị gần với điểm di chuyển hiện tại. Dó dữ liệu traffic có thể đã thay đổi khi chúng ta di chuyển đi xa hơn điểm hiện tại. CRP xử lý việc này bằng cách sử dụng hai hàm mất mát: một hàm với thông tin traffic và một hàm không. CRP sẽ thực hiện việc chuyển đổi giữa hai hàm này sau một khoảng thời gian nhất định. Ngoài ra thông tin traffic có thể được dự đoán dựa trên các thông tin traffic trong quá khứ.
+Quá trình *customization* trong CRP là khá nhanh, do vậy việc thay đổi trọng số đồ thị cho một metric nào đó là khả thi. Một điểm nữa là chúng ta chỉ cần tính toán dữ liệu traffic cho các cạnh đồ thị gần với điểm di chuyển hiện tại. Do dữ liệu traffic có thể đã thay đổi khi chúng ta di chuyển đi xa hơn điểm hiện tại. CRP xử lý việc này bằng cách sử dụng hai hàm mất mát: một hàm với thông tin traffic và một hàm không. CRP sẽ thực hiện việc chuyển đổi giữa hai hàm này sau một khoảng thời gian nhất định. Ngoài ra thông tin traffic có thể được dự đoán dựa trên các thông tin traffic trong quá khứ.
 
 ## Graph representation in OSRM
 OSRM chuyển đổi dữ liệu từ OpenStreetMap thành một dạng đồ thị với tên gọi *edge-expanded graph*. Quá trình này tương đương với bước 1 và 2 trong CRP.
