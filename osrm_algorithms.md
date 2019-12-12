@@ -31,7 +31,7 @@ Bài toán tìm đương ngắn nhất có thể phát biểu như sau:
 - Một đường đi (path) là một tập hợp các vertices trong đồ thị `(v1, v2, ... , vn)`, trong đó `(v-i, v-i+1)` là một arc trong đồ thị.
 - Problem: cho trước hai điểm trên bản đồ: `s` (source), `t` (target), chúng ta cần tìm khoảng cách ngắn nhất giữa hai điểm đó - `shortest dist(s,t)`
 
-Một thuật toán khá cơ bản để giải quyết vấn đề trên là **Dijkstra's**. Tốc độ của thuật toán này khá tốt và phụ thuộc vào việc sử dụng các cấu trúc dữ liệu để lưu trữ vertext tiếp theo mà thuật toán cần quét. Ngoài việc quét các vertext theo chiều tăng dần của khoảng cách (forward scanning), chúng ta có thể tăng tốc thuật toán này sử dụng *bidirectional scanning*. Thuật toán sẽ chạy 2 dạng scan đồng thời, forward scanning từ s đến t và backward scanning từ t đến s. Thuật toán sẽ dừng khi hai quá trình scan gặp nhau.
+Một thuật toán khá cơ bản để giải quyết vấn đề trên là **Dijkstra's**. Tốc độ của thuật toán này khá tốt và phụ thuộc vào việc sử dụng các cấu trúc dữ liệu để lưu trữ vertex tiếp theo mà thuật toán cần quét. Ngoài việc quét các vertext theo chiều tăng dần của khoảng cách (forward scanning), chúng ta có thể tăng tốc thuật toán này sử dụng *bidirectional scanning*. Thuật toán sẽ chạy 2 dạng scan đồng thời, forward scanning từ s đến t và backward scanning từ t đến s. Thuật toán sẽ dừng khi hai quá trình scan gặp nhau.
 
 Tuy nhiên, khi dữ liệu bản đồ lớn, thuật toán Dijkstra's vẫn cần mất tới một vài giây để hoàn thành quá trình tìm đường đi ngắn nhất. Đối với ứng dụng bản đồ, khoảng thời gian đó là không thể áp dụng được. Đó là lý do tại sao, CRP sử dụng bước tiền xử lý để chuyển đổi dạng đồ thị gốc thành *multilevel overlay graphs*.
 
