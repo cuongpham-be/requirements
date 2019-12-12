@@ -35,7 +35,7 @@ Một thuật toán khá cơ bản để giải quyết vấn đề trên là **
 
 Tuy nhiên, khi dữ liệu bản đồ lớn, thuật toán Dijkstra's vẫn cần mất tới một vài giây để hoàn thành quá trình tìm đường đi ngắn nhất. Đối với ứng dụng bản đồ, khoảng thời gian đó là không thể áp dụng được. Đó là lý do tại sao, CRP sử dụng bước tiền xử lý để chuyển đổi dạng đồ thị gốc thành *multilevel overlay graphs*.
 
-
+![](./overlay_graph.png)
 
 
 
