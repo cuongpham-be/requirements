@@ -64,6 +64,8 @@ OSRM sử dụng một số kĩ thuật trên khi cài đặt các thuật toán
 ## Queries
 Queries là bước cuối cung trong CRP mà quá trình tìm đương đi ngắn nhất sẽ được thực hiện. CRP sử dụng một phiên bản đã được custom của Dijkstra's - MLD hay Multilevel Dijkstra's. MLD sẽ được sử dụng cùng với phương pháp *bidirectional search*.
 
+Ngoài việc tìm kiếm đường đi tốt nhất (best route), CRP cũng cho phép tìm kiếm các đường đi thay thế (alternative routes).
+
 ## Graph representation in OSRM
 
 
