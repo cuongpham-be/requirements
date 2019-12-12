@@ -39,11 +39,30 @@ Tuy nhiên, khi dữ liệu bản đồ lớn, thuật toán Dijkstra's vẫn c�
 
 Multilevel overlay graph được tạo trong quá trình *graph separators* của CRP sử dụng phương pháp *partition-based overlay graphs*. Hiểu một các đơn giản overlay graphs được xây dựng từ graph gốc bằng cách tạo ra các **clique** (hay các đồ thị con đầy đủ, hay tập hợp các đỉnh của đồ thị con đó). Mục đích của overlay graph là tạo ra các lớp đồ thị đơn giản hơn (có chung đường biên - boundary với đồ thị gốc), sử dụng các shortcuts mà vẫn đảm bảo khoảng cách giữa các đỉnh của đồ thị. Việc tìm đường đi ngắn nhất sẽ được thực hiện trên các lớp overlay đó nhằm tăng tốc độ xử lý của quá trình searching.
 
+Trong phần tiếp theo, các bước trong CRP sẽ được thảo luân. Tuy nhiên chúng ta sẽ không đi quá sau vào vấn đề implementation hoặc các vấn đề toán học bên dưới.
+
 ## Metric-independent preprocessing
+Nhiệm vụ của bước này trong CRP:
+- Thực hiện quá trình phân vùng trên nhiều level (multilevel partitioning) trên đồ thị gốc.
+- Xây dựng cấu trúc liên kết (toplogy) của overlay graphs.
+- Xây dựng các cấu trúc dữ liệu phục vụ cho quá trình *Metric customization*.
+
+Sau khi đã phân vùng trên đồ thị gốc, CRP sẽ tạo các cấu trúc dữ liệu (không phụ thuộc vào các metric) cho overlay graph. Mục đích là việc xây dự cấu trúc liên kết của overlay graph chỉ được thực hiện một lần và có thể sử dụng lại cho nhiều loại metric khá nhau. Trong quá trình thực hiện các *queries*, CRP sẽ thực hiện việc chuyển đổi giữa overlay graph và original graph.
 
 ## Metric customization
+Quá trình nay thực hiện việc đánh trọng số cho đồ thị được tạo ra từ bước 1 cho từng loại metric. Các trọng số này cần được tối ưu trong quá trình thực hiện các *queries*. Việc tính toán trọng số cần được thực hiện nhanh mỗi khi một metric nào đó cần được tối ưu. CRP sử dụng các phương pháp sau để thực hiện việc đó (chi tiết của từng phương pháp có thể tham khảo trong research paper):
+
+- Improving Locality
+- Pruning the Search graph
+- Alternative Algorithms
+- Multiple-source executions
+- Parallelism
+- Phantom Levels
+
+OSRM sử dụng một số kĩ thuật trên khi cài đặt các thuật toán routing.
 
 ## Queries
+Queries là bước cuối cung trong CRP mà quá trình tìm đương đi ngắn nhất sẽ được thực hiện. CRP sử dụng một phiên bản đã được custom của Dijkstra's - MLD hay Multilevel Dijkstra's. MLD sẽ được sử dụng cùng với phương pháp *bidirectional search*.
 
 ## Graph representation in OSRM
 
