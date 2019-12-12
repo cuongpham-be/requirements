@@ -37,6 +37,15 @@ Tuy nhiên, khi dữ liệu bản đồ lớn, thuật toán Dijkstra's vẫn c�
 
 ![](./overlay_graph.png)
 
+Multilevel overlay graph được tạo trong quá trình *graph separators* của CRP sử dụng phương pháp *partition-based overlay graphs*. Hiểu một các đơn giản overlay graphs được xây dựng từ graph gốc bằng cách tạo ra các **clique** (hay các đồ thị con đầy đủ, hay tập hợp các đỉnh của đồ thị con đó). Mục đích của overlay graph là tạo ra các lớp đồ thị đơn giản hơn (có chung đường biên - boundary với đồ thị gốc), sử dụng các shortcuts mà vẫn đảm bảo khoảng cách giữa các đỉnh của đồ thị. Việc tìm đường đi ngắn nhất sẽ được thực hiện trên các lớp overlay đó nhằm tăng tốc độ xử lý của quá trình searching.
+
+## Metric-independent preprocessing
+
+## Metric customization
+
+## Queries
+
+## Graph representation in OSRM
 
 
 
