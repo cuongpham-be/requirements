@@ -71,19 +71,77 @@ Trong các dịch vụ bản đồ hiện nay, việc xử lý thông tin traffi
 Quá trình *customization* trong CRP là khá nhanh, do vậy việc thay đổi trọng số đồ thị cho một metric nào đó là khả thi. Một điểm nữa là chúng ta chỉ cần tính toán dữ liệu traffic cho các cạnh đồ thị gần với điểm di chuyển hiện tại. Dó dữ liệu traffic có thể đã thay đổi khi chúng ta di chuyển đi xa hơn điểm hiện tại. CRP xử lý việc này bằng cách sử dụng hai hàm mất mát: một hàm với thông tin traffic và một hàm không. CRP sẽ thực hiện việc chuyển đổi giữa hai hàm này sau một khoảng thời gian nhất định. Ngoài ra thông tin traffic có thể được dự đoán dựa trên các thông tin traffic trong quá khứ.
 
 ## Graph representation in OSRM
+OSRM chuyển đổi dữ liệu từ OpenStreetMap thành một dạng đồ thị với tên gọi *edge-expanded graph*. Quá trình này tương đương với bước 1 và 2 trong CRP.
 
+OSRM sử dụng OSM tags để lấy các thông tin về tốc độ và tính toán thời gian di chuyển cho mỗi edge (arc). Ngoài ra OSRM còn tính toán thêm một số thông số *penalties* (tính bằng giây) cho các đoạn đường rẽ hoặc quay đầu.
 
+Sau khi đã có một đồ thị với các trọng số đầy đủ. OSRM sẽ thực hiện thuật toán Dijkstra's để tìm đường đi tốt nhất trên đồ thị đó.
 
+![](https://cloud.githubusercontent.com/assets/1892250/13710991/1b507fb6-e771-11e5-8710-8d5f16d805ce.gif)
 
+Giả sử dữ liệu từ OSM có dạng như sau:
 
+```
+|   |   | d |
+| a | b | c |
+|   |   | e |
+```
 
+Ở đây chúng ta có 2 đường: abc và dce giao nhau tại điểm c
 
+Đầu tiên chúng ta cần chia đồ thị gốc thành cách segment: ab,bc,cd,ce. Với mỗi segment, hai graph node sẽ được tạo cho từng direction:
 
+```
+ab, ba
+bc, cb
+cd, dc
+ce, ec
+```
 
+Graph edge sẽ được tạo cho các hướng di chuyển có thể giữa các graph node trên:
 
+```
+dc-cd
+dc-cb
+dc-ce
+ab-ba
+ab-bc
+ba-ab
+bc-cd
+bc-cb
+bc-ce
+cd-dc
+cb-ba
+cb-bc
+ce-ec
+ec-cd
+ec-cb
+ec-ce
+```
 
+Chú ý rằng node kết thúc của một edge sẽ là node bắt đầu của một edge kế tiếp, do chúng ta chỉ có thể di chuyển trong các edge liên tục.
 
+Nhiều dạng u-turns không các edge được tạo ở trên là không khả thi, OSRM sẽ thực hiện việc xóa bỏ các u-turns đó. Ngoài ra OSRM cũng thực hiện việc loại bỏ các turns bị giới hạn nhưng vào đường một chiều hoặc đường cấm.
 
+```text
+ab-bc (from ab, continue on bc)
+ba-ab (from ba, do a u-turn at a and return on ab)
+bc-cd (from bc, turn left onto dc)
+bc-ce (from bc, turn right onto ce)
+cb-ba (from cb, continue along on ba)
+cd-dc (from cd, do a u-turn at d and return on dc)
+ce-ec (from ce, do a u turn at e and return on ec)
+dc-cb (from dc, turn right onto cd)
+dc-ce (from dc, continue on ce)
+ec-cd (from ec, continue on cd)
+ec-cb (from ec, turn left onto cb)
+```
+
+- Graph node: biểu thị hướng của một OSM segment (backward hoặc forward). Nếu segment là bidirectional (2 chiều) sẽ có 2 graph node, và 1 graph node cho oneway segment.
+
+- Graph edge: dùng để liên kết các graph nodes, dùng kể biểu thị việc di chuyển theo một hướng nhất định từ một OSM segment này đên một OSM segment khác.
+
+![text16557](https://cloud.githubusercontent.com/assets/1892250/19296198/1de51b4a-8ff7-11e6-8339-31eb6361338a.png)
 
 
 
