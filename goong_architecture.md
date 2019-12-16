@@ -53,3 +53,46 @@ Tâng này chủ yếu là hệ sinh thái mà Goong xây dựng trên nền c�
 - Goong Android và iOS apps
 
 ## Goong and OSM
+
+Việc thu thập dữ liệu:
+- Giống nhau: OSM và Goong đều sử dụng phương pháp khảo sát để thu thập dữ liệu bản đồ về.
+- Khác nhau: OSM cung cấp các công cụ cho phép người dùng submit những thay đổi về bản đồ lên OpenStreetMap, trong khi đó Goong không có công cụ này. Dữ liệu POIs từ Goong được thu thập chủ động thông qua các nguồn đáng tin cậy hơn, trong khi dữ liệu OSM là khá ngheo nàn và không có độ chính xác cao. Goong có support việc hiển thị thông tin traffic,trong khí đó OSM không support nguồn dữ liêu này.
+
+Lưu trữ dữ liệu:
+- Giống nhau: OSM và Goong đều sử dụng PostgreSQL là công cụ để lưu trữ dữ liệu bản đồ.
+- Khác nhau: OSM ngoài dữ liệu bản đồ và các map tile cần phải xử lý việc export dữ liệu bản đồ ra các định dạng như .osm, .pbf, lưu trữ và update dữ liệu đó, cũng như cho phép người dùng download và sử dụng các nguồn dữ liệu bản đồ đó.
+
+
+SDK:
+- Khác nhau: OSM và Goong đều cung cấp các REST API. Tuy nhiên các API của OSM tập trung chủ yếu vào việc thay đổi dữ liệu bản đồ. Trong khi đó Goong API phụ vụ chủ yếu các công việc như searching và routing, OSM phải dựa vào các tool bên thứ ba để làm các việc đó như OSRM (routing) và Nominatim (searching). OSM không cung cấp các SDK cho môi trường mobile.
+
+Mục đích sử dụng
+- OSM: cung cấp nguồn dữ liệu bản đồ mã nguồn mở, mọi người đều có thể đóng góp
+- Goong: là phần mềm doanh nghiệp, tập trung vào giải quyết các bài toán cụ thể như dẫn đường, tìm kiếm các điểm POIs,...
+
+Map layers:
+- Goong có 2 layer chính là transport layer và Satellite layer
+- OSM ngoài 2 layer trên có thể hiển thị thêm các layer khác sử dụng các bên thứ 3.
+
+Map rendering:
+- Goong sử dụng Mapbox GL và một số tool như Leaflet để tạo interactive map
+- OSM sử dụng các tool như Mapnik Leaflet để render map.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
