@@ -1,0 +1,5575 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Backend Service",
+    "version": "1.0.0"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/cities": {
+      "get": {
+        "operationId": "GetCities",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetCitiesResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "CountryID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "post": {
+        "summary": "service: City",
+        "operationId": "CreateCity",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbCreateCityResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbCreateCityRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/cities/{city_id}": {
+      "get": {
+        "operationId": "GetCity",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetCityResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteCity",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbDeleteCityResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateCity",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbUpdateCityResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdateCityRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/countries": {
+      "get": {
+        "operationId": "GetCountries",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetCountriesResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "post": {
+        "summary": "service: Country",
+        "operationId": "CreateCountry",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbCreateCountryResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbCreateCountryRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/countries/{country_id}": {
+      "get": {
+        "operationId": "GetCountry",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetCountryResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "country_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteCountry",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbDeleteCountryResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "country_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateCountry",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbUpdateCountryResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "country_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdateCountryRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/districts": {
+      "get": {
+        "operationId": "GetDistricts",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetDistrictsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "CityID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "prefix",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "post": {
+        "summary": "service: District",
+        "operationId": "CreateDistrict",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbCreateDistrictResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbCreateDistrictRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/districts/{district_id}": {
+      "get": {
+        "operationId": "GetDistrict",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetDistrictResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "district_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteDistrict",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbDeleteDistrictResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "district_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateDistrict",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbUpdateDistrictResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "district_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdateDistrictRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/furnitures": {
+      "get": {
+        "operationId": "GetFurnitures",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetFurnituresResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "icon",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "post": {
+        "summary": "service: Furniture",
+        "operationId": "CreateFurniture",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbCreateFurnitureResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbCreateFurnitureRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/furnitures/{furniture_id}": {
+      "get": {
+        "operationId": "GetFurniture",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetFurnitureResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "furniture_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteFurniture",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbDeleteFurnitureResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "furniture_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateFurniture",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbUpdateFurnitureResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "furniture_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdateFurnitureRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/images": {
+      "get": {
+        "operationId": "GetImages",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetImagesResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "post": {
+        "summary": "service: Image",
+        "operationId": "CreateImage",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbCreateImageResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbCreateImageRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/images/{image_id}": {
+      "get": {
+        "operationId": "GetImage",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetImageResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "image_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteImage",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbDeleteImageResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "image_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateImage",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbUpdateImageResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "image_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdateImageRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/investors": {
+      "get": {
+        "operationId": "GetInvestors",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetInvestorsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "post": {
+        "summary": "service: Investor",
+        "operationId": "CreateInvestor",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbCreateInvestorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbCreateInvestorRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/investors/{investor_id}": {
+      "get": {
+        "operationId": "GetInvestor",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetInvestorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "investor_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteInvestor",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbDeleteInvestorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "investor_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateInvestor",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbUpdateInvestorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "investor_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdateInvestorRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/projects": {
+      "get": {
+        "operationId": "GetProjects",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetProjectsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "relations",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "acreage",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "latitude",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "longitude",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "number_of_flats",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "UserID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "InvestorID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "TypeOfPropertyID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "CityID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "DistrictID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "WardID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "ImageID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "post": {
+        "summary": "service: Project",
+        "operationId": "CreateProject",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbCreateProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbCreateProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/projects/{project_id}": {
+      "get": {
+        "operationId": "GetProject",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteProject",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbDeleteProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateProject",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbUpdateProjectResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdateProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/properties": {
+      "get": {
+        "operationId": "GetProperties",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetPropertiesResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "fields",
+            "description": "string status = 6;.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "relations",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "transaction_type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "price_is_contact",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "down_payment",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "contract_due",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "payment_due",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "time_begin_for_rent",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "direction",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "acreage",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "latitude",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "longitude",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "number_of_rooms",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "number_of_baths",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "number_of_floors",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "is_visible",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "UserID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "InvestorID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "TypeOfPropertyID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "ProjectID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "CountryID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "CityID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "DistrictID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "WardID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "ImageID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "post": {
+        "summary": "service: Property",
+        "operationId": "CreateProperty",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbCreatePropertyResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbCreatePropertyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/properties/{property_id}": {
+      "get": {
+        "operationId": "GetProperty",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetPropertyResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "property_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteProperty",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbDeletePropertyResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "property_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateProperty",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbUpdatePropertyResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "property_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdatePropertyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/properties_of_user": {
+      "get": {
+        "operationId": "GetPropertiesOfUser",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetPropertiesOfUserResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "relations",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "transaction_type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "price_is_contact",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "down_payment",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "contract_due",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "payment_due",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "time_begin_for_rent",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "direction",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "acreage",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "latitude",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "longitude",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "number_of_rooms",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "number_of_baths",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "number_of_floors",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "is_visible",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "UserID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "InvestorID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "TypeOfPropertyID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "ProjectID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "CountryID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "CityID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "DistrictID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "WardID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "ImageID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/property_image_detail/{property_id}": {
+      "put": {
+        "operationId": "DeleteImageDetailOfProperty",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbCommonResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "property_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbDeleteImageDetailOfPropertyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/property_status/{property_id}": {
+      "put": {
+        "operationId": "UpdateStatusOfProperty",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbUpdateStatusOfPropertyResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "property_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdateStatusOfPropertyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/property_visible/{property_id}": {
+      "put": {
+        "operationId": "UpdateVisibleOfProperty",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbUpdateVisibleOfPropertyResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "property_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdateVisibleOfPropertyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/streets": {
+      "get": {
+        "operationId": "GetStreets",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pbGetStreetsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "CityID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "DistrictID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "prefix",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "post": {
+        "summary": "service: Street",
+        "operationId": "CreateStreet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pbCreateStreetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbCreateStreetRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }      
+    },
+    "/streets/{street_id}": {
+      "get": {
+        "operationId": "GetStreet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pbGetStreetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "street_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateStreet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pbUpdateStreetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdateStreetRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteStreet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/pbDeleteStreetResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "street_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/type_of_properties": {
+      "get": {
+        "operationId": "GetTypeOfProperties",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetTypeOfPropertiesResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "icon",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "post": {
+        "summary": "service: TypeOfProperty",
+        "operationId": "CreateTypeOfProperty",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbCreateTypeOfPropertyResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbCreateTypeOfPropertyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/type_of_properties/{type_of_property_id}": {
+      "get": {
+        "operationId": "GetTypeOfProperty",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetTypeOfPropertyResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "type_of_property_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteTypeOfProperty",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbDeleteTypeOfPropertyResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "type_of_property_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateTypeOfProperty",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbUpdateTypeOfPropertyResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "type_of_property_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdateTypeOfPropertyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/utilities": {
+      "get": {
+        "operationId": "GetUtilities",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetUtilitiesResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "icon",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "post": {
+        "summary": "service: Utility",
+        "operationId": "CreateUtility",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbCreateUtilityResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbCreateUtilityRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/utilities/{utility_id}": {
+      "get": {
+        "operationId": "GetUtility",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetUtilityResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "utility_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteUtility",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbDeleteUtilityResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "utility_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateUtility",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbUpdateUtilityResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "utility_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdateUtilityRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/version": {
+      "get": {
+        "operationId": "Version",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbVersionResponse"
+            }
+          }
+        },
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/wards": {
+      "get": {
+        "operationId": "GetWards",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetWardsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort_by",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "CityID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "DistrictID",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "prefix",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "feature",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "post": {
+        "summary": "service: Ward",
+        "operationId": "CreateWard",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbCreateWardResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbCreateWardRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    },
+    "/wards/{ward_id}": {
+      "get": {
+        "operationId": "GetWard",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbGetWardResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ward_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteWard",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbDeleteWardResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ward_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      },
+      "put": {
+        "operationId": "UpdateWard",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/pbUpdateWardResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ward_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pbUpdateWardRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BehomeBackend"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "pbCitiesData": {
+      "type": "object",
+      "properties": {
+        "cities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbCity"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbCity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "country_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbCityFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbCityStatus"
+        }
+      },
+      "title": "City"
+    },
+    "pbCityData": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "$ref": "#/definitions/pbCity"
+        }
+      }
+    },
+    "pbCityFeature": {
+      "type": "string",
+      "enum": [
+        "city_feature_off",
+        "city_feature_on"
+      ],
+      "default": "city_feature_off",
+      "description": "`city_feature` only has two options: on or off",
+      "title": "city_feature"
+    },
+    "pbCityInput": {
+      "type": "object",
+      "properties": {
+        "country_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbCityFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbCityStatus"
+        }
+      }
+    },
+    "pbCityStatus": {
+      "type": "string",
+      "enum": [
+        "city_status_disable",
+        "city_status_enable"
+      ],
+      "default": "city_status_disable",
+      "description": "`city_status` only has two options: enable or disable",
+      "title": "city_status"
+    },
+    "pbCommonResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbCountriesData": {
+      "type": "object",
+      "properties": {
+        "countries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbCountry"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbCountry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbCountryFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbCountryStatus"
+        }
+      },
+      "title": "Country"
+    },
+    "pbCountryData": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "$ref": "#/definitions/pbCountry"
+        }
+      }
+    },
+    "pbCountryFeature": {
+      "type": "string",
+      "enum": [
+        "country_feature_off",
+        "country_feature_on"
+      ],
+      "default": "country_feature_off",
+      "description": "`country_feature` only has two options: on or off",
+      "title": "country_feature"
+    },
+    "pbCountryInput": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbCountryFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbCountryStatus"
+        }
+      }
+    },
+    "pbCountryStatus": {
+      "type": "string",
+      "enum": [
+        "country_status_disable",
+        "country_status_enable"
+      ],
+      "default": "country_status_disable",
+      "description": "`country_status` only has two options: enable or disable",
+      "title": "country_status"
+    },
+    "pbCreateCityRequest": {
+      "type": "object",
+      "properties": {
+        "city_input": {
+          "$ref": "#/definitions/pbCityInput"
+        }
+      }
+    },
+    "pbCreateCityResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbCityData"
+        }
+      }
+    },
+    "pbCreateCountryRequest": {
+      "type": "object",
+      "properties": {
+        "country_input": {
+          "$ref": "#/definitions/pbCountryInput"
+        }
+      }
+    },
+    "pbCreateCountryResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbCountryData"
+        }
+      }
+    },
+    "pbCreateDistrictRequest": {
+      "type": "object",
+      "properties": {
+        "district_input": {
+          "$ref": "#/definitions/pbDistrictInput"
+        }
+      }
+    },
+    "pbCreateDistrictResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbDistrictData"
+        }
+      }
+    },
+    "pbCreateFurnitureRequest": {
+      "type": "object",
+      "properties": {
+        "furniture_input": {
+          "$ref": "#/definitions/pbFurnitureInput"
+        }
+      }
+    },
+    "pbCreateFurnitureResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbFurnitureData"
+        }
+      }
+    },
+    "pbCreateImageRequest": {
+      "type": "object",
+      "properties": {
+        "image_input": {
+          "$ref": "#/definitions/pbImageInput"
+        }
+      }
+    },
+    "pbCreateImageResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbImageData"
+        }
+      }
+    },
+    "pbCreateInvestorRequest": {
+      "type": "object",
+      "properties": {
+        "investor_input": {
+          "$ref": "#/definitions/pbInvestorInput"
+        }
+      }
+    },
+    "pbCreateInvestorResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbInvestorData"
+        }
+      }
+    },
+    "pbCreateProjectRequest": {
+      "type": "object",
+      "properties": {
+        "project_input": {
+          "$ref": "#/definitions/pbProjectInput"
+        }
+      }
+    },
+    "pbCreateProjectResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbProjectData"
+        }
+      }
+    },
+    "pbCreatePropertyRequest": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "brief": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "transaction_type": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "price_is_contact": {
+          "type": "string",
+          "format": "int64"
+        },
+        "down_payment": {
+          "type": "number",
+          "format": "double"
+        },
+        "contract_due": {
+          "type": "string",
+          "format": "int64"
+        },
+        "payment_due": {
+          "type": "string",
+          "format": "int64"
+        },
+        "time_begin_for_rent": {
+          "type": "string",
+          "format": "int64"
+        },
+        "direction": {
+          "type": "string"
+        },
+        "acreage": {
+          "type": "number",
+          "format": "double"
+        },
+        "address": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "number_of_rooms": {
+          "type": "string",
+          "format": "int64"
+        },
+        "number_of_baths": {
+          "type": "string",
+          "format": "int64"
+        },
+        "number_of_floors": {
+          "type": "string",
+          "format": "int64"
+        },
+        "utilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "furnitures": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "contact_name": {
+          "type": "string"
+        },
+        "contact_phone": {
+          "type": "string"
+        },
+        "contact_message": {
+          "type": "string"
+        },
+        "feature": {
+          "type": "string",
+          "format": "int64"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "type": "string"
+        },
+        "is_visible": {
+          "type": "string",
+          "format": "int64"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "investor_id": {
+          "type": "string"
+        },
+        "type_of_property_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "project_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "country_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "city_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "district_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ward_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "image_id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbCreatePropertyResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbPropertyData"
+        }
+      }
+    },
+    "pbCreateStreetRequest": {
+      "type": "object",
+      "properties": {
+        "street_input": {
+          "$ref": "#/definitions/pbStreetInput"
+        }
+      }
+    },
+    "pbCreateStreetResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbStreetData"
+        }
+      }
+    },
+    "pbCreateTypeOfPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "type_of_property_input": {
+          "$ref": "#/definitions/pbTypeOfPropertyInput"
+        }
+      }
+    },
+    "pbCreateTypeOfPropertyResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbTypeOfPropertyData"
+        }
+      }
+    },
+    "pbCreateUtilityRequest": {
+      "type": "object",
+      "properties": {
+        "utility_input": {
+          "$ref": "#/definitions/pbUtilityInput"
+        }
+      }
+    },
+    "pbCreateUtilityResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbUtilityData"
+        }
+      }
+    },
+    "pbCreateWardRequest": {
+      "type": "object",
+      "properties": {
+        "ward_input": {
+          "$ref": "#/definitions/pbWardInput"
+        }
+      }
+    },
+    "pbCreateWardResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbWardData"
+        }
+      }
+    },
+    "pbDeleteCityResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbDeleteCountryResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbDeleteDistrictResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbDeleteFurnitureResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbDeleteImageDetailOfPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "image_detail_id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbDeleteImageResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbDeleteInvestorResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbDeleteProjectResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbDeletePropertyResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbDeleteTypeOfPropertyResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbDeleteUtilityResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbDeleteWardResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbDistrict": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "city_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbDistrictFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbDistrictStatus"
+        }
+      },
+      "title": "Distric"
+    },
+    "pbDistrictData": {
+      "type": "object",
+      "properties": {
+        "district": {
+          "$ref": "#/definitions/pbDistrict"
+        }
+      }
+    },
+    "pbDistrictFeature": {
+      "type": "string",
+      "enum": [
+        "district_feature_off",
+        "district_feature_on"
+      ],
+      "default": "district_feature_off",
+      "description": "`district_feature` only has two options: on or off",
+      "title": "district_feature"
+    },
+    "pbDistrictInput": {
+      "type": "object",
+      "properties": {
+        "city_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbDistrictFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbDistrictStatus"
+        }
+      }
+    },
+    "pbDistrictStatus": {
+      "type": "string",
+      "enum": [
+        "district_status_disable",
+        "district_status_enable"
+      ],
+      "default": "district_status_disable",
+      "description": "`district_status` only has two options: enable or disable",
+      "title": "district_status"
+    },
+    "pbDistrictsData": {
+      "type": "object",
+      "properties": {
+        "districts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbDistrict"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbFurniture": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbFurnitureFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbFurnitureStatus"
+        }
+      },
+      "title": "Distric"
+    },
+    "pbFurnitureData": {
+      "type": "object",
+      "properties": {
+        "furniture": {
+          "$ref": "#/definitions/pbFurniture"
+        }
+      }
+    },
+    "pbFurnitureFeature": {
+      "type": "string",
+      "enum": [
+        "furniture_feature_off",
+        "furniture_feature_on"
+      ],
+      "default": "furniture_feature_off",
+      "description": "`furniture_feature` only has two options: on or off",
+      "title": "furniture_feature"
+    },
+    "pbFurnitureInput": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbFurnitureFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbFurnitureStatus"
+        }
+      }
+    },
+    "pbFurnitureStatus": {
+      "type": "string",
+      "enum": [
+        "furniture_status_disable",
+        "furniture_status_enable"
+      ],
+      "default": "furniture_status_disable",
+      "description": "`furniture_status` only has two options: enable or disable",
+      "title": "furniture_status"
+    },
+    "pbFurnituresData": {
+      "type": "object",
+      "properties": {
+        "furnitures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbFurniture"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbGetCitiesResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbCitiesData"
+        }
+      }
+    },
+    "pbGetCityResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbCityData"
+        }
+      }
+    },
+    "pbGetCountriesResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbCountriesData"
+        }
+      }
+    },
+    "pbGetCountryResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbCountryData"
+        }
+      }
+    },
+    "pbGetDistrictResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbDistrictData"
+        }
+      }
+    },
+    "pbGetDistrictsResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbDistrictsData"
+        }
+      }
+    },
+    "pbGetFurnitureResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbFurnitureData"
+        }
+      }
+    },
+    "pbGetFurnituresResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbFurnituresData"
+        }
+      }
+    },
+    "pbGetImageResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbImageData"
+        }
+      }
+    },
+    "pbGetImagesResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbImagesData"
+        }
+      }
+    },
+    "pbGetInvestorResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbInvestorData"
+        }
+      }
+    },
+    "pbGetInvestorsResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbInvestorsData"
+        }
+      }
+    },
+    "pbGetProjectResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbProjectData"
+        }
+      }
+    },
+    "pbGetProjectsResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbProjectsData"
+        }
+      }
+    },
+    "pbGetPropertiesOfUserResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbPropertiesData"
+        }
+      }
+    },
+    "pbGetPropertiesResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbPropertiesData"
+        }
+      }
+    },
+    "pbGetPropertyResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbPropertyData"
+        }
+      }
+    },
+    "pbGetTypeOfPropertiesResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbTypeOfPropertiesData"
+        }
+      }
+    },
+    "pbGetTypeOfPropertyResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbTypeOfPropertyData"
+        }
+      }
+    },
+    "pbGetUtilitiesResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbUtilitiesData"
+        }
+      }
+    },
+    "pbGetUtilityResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbUtilityData"
+        }
+      }
+    },
+    "pbGetWardResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbWardData"
+        }
+      }
+    },
+    "pbGetWardsResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbWardsData"
+        }
+      }
+    },
+    "pbImage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        },
+        "object_id": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbImageDetail"
+          }
+        }
+      },
+      "title": "Image"
+    },
+    "pbImageData": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/pbImage"
+        }
+      }
+    },
+    "pbImageDetail": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "image_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "size": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        }
+      }
+    },
+    "pbImageDetailInput": {
+      "type": "object",
+      "properties": {
+        "image_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "size": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        }
+      }
+    },
+    "pbImageInput": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbImageDetailInput"
+          }
+        }
+      }
+    },
+    "pbImagesData": {
+      "type": "object",
+      "properties": {
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbImage"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbInvestor": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbInvestorFeature"
+        },
+        "status": {
+          "$ref": "#/definitions/pbInvestorStatus"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "title": "Investor"
+    },
+    "pbInvestorData": {
+      "type": "object",
+      "properties": {
+        "investor": {
+          "$ref": "#/definitions/pbInvestor"
+        }
+      }
+    },
+    "pbInvestorFeature": {
+      "type": "string",
+      "enum": [
+        "investor_feature_off",
+        "investor_feature_on"
+      ],
+      "default": "investor_feature_off",
+      "description": "`investor_feature` only has two options: on or off",
+      "title": "investor_feature"
+    },
+    "pbInvestorInput": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbInvestorFeature"
+        },
+        "status": {
+          "$ref": "#/definitions/pbInvestorStatus"
+        }
+      }
+    },
+    "pbInvestorStatus": {
+      "type": "string",
+      "enum": [
+        "investor_status_disable",
+        "investor_status_enable"
+      ],
+      "default": "investor_status_disable",
+      "description": "`investor_status` only has two options: enable or disable",
+      "title": "investor_status"
+    },
+    "pbInvestorsData": {
+      "type": "object",
+      "properties": {
+        "investors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbInvestor"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbMetaData": {
+      "type": "object",
+      "properties": {
+        "flag": {
+          "type": "string",
+          "format": "int64"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "pbProject": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "acreage": {
+          "type": "number",
+          "format": "double"
+        },
+        "latitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "number_of_flats": {
+          "type": "string",
+          "format": "int64"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbProjectFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbProjectStatus"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "int64"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "investor_id": {
+          "type": "string"
+        },
+        "type_of_property_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "city_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "district_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ward_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "image_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "investor": {
+          "$ref": "#/definitions/pbInvestor",
+          "title": "User user = 30;"
+        },
+        "type_of_property": {
+          "$ref": "#/definitions/pbTypeOfProperty"
+        },
+        "city": {
+          "$ref": "#/definitions/pbCity"
+        },
+        "district": {
+          "$ref": "#/definitions/pbDistrict"
+        },
+        "ward": {
+          "$ref": "#/definitions/pbWard"
+        },
+        "image": {
+          "$ref": "#/definitions/pbImage"
+        }
+      },
+      "title": "Project"
+    },
+    "pbProjectData": {
+      "type": "object",
+      "properties": {
+        "project": {
+          "$ref": "#/definitions/pbProject"
+        }
+      }
+    },
+    "pbProjectFeature": {
+      "type": "string",
+      "enum": [
+        "project_feature_off",
+        "project_feature_on"
+      ],
+      "default": "project_feature_off",
+      "description": "`project_feature` only has two options: on or off",
+      "title": "project_feature"
+    },
+    "pbProjectInput": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "acreage": {
+          "type": "number",
+          "format": "double"
+        },
+        "latitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "number_of_flats": {
+          "type": "string",
+          "format": "int64"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbProjectFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbProjectStatus"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "investor_id": {
+          "type": "string"
+        },
+        "type_of_property_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "city_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "district_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ward_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "image_id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbProjectStatus": {
+      "type": "string",
+      "enum": [
+        "project_status_disable",
+        "project_status_enable"
+      ],
+      "default": "project_status_disable",
+      "description": "`project_status` only has two options: enable or disable",
+      "title": "project_status"
+    },
+    "pbProjectsData": {
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbProject"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbPropertiesData": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbProperty"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbProperty": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "brief": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "transaction_type": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "price_is_contact": {
+          "type": "string",
+          "format": "int64"
+        },
+        "down_payment": {
+          "type": "number",
+          "format": "double"
+        },
+        "contract_due": {
+          "type": "string",
+          "format": "int64"
+        },
+        "payment_due": {
+          "type": "string",
+          "format": "int64"
+        },
+        "time_begin_for_rent": {
+          "type": "string",
+          "format": "int64"
+        },
+        "direction": {
+          "type": "string"
+        },
+        "acreage": {
+          "type": "number",
+          "format": "double"
+        },
+        "address": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "number_of_rooms": {
+          "type": "string",
+          "format": "int64"
+        },
+        "number_of_baths": {
+          "type": "string",
+          "format": "int64"
+        },
+        "number_of_floors": {
+          "type": "string",
+          "format": "int64"
+        },
+        "contact_name": {
+          "type": "string"
+        },
+        "contact_phone": {
+          "type": "string"
+        },
+        "contact_message": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "investor_id": {
+          "type": "string"
+        },
+        "type_of_property_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "project_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "country_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "city_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "district_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ward_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "image_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "feature": {
+          "type": "string",
+          "format": "int64"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "type": "string"
+        },
+        "is_visible": {
+          "type": "string",
+          "format": "int64"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "int64"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "int64"
+        },
+        "transaction_type_display": {
+          "type": "string"
+        },
+        "direction_display": {
+          "type": "string"
+        },
+        "price_display": {
+          "type": "string"
+        },
+        "status_display": {
+          "type": "string"
+        },
+        "acreage_display": {
+          "type": "string"
+        },
+        "investor": {
+          "$ref": "#/definitions/pbInvestor",
+          "title": "User user = 60;"
+        },
+        "type_of_property": {
+          "$ref": "#/definitions/pbTypeOfProperty"
+        },
+        "project": {
+          "$ref": "#/definitions/pbProject"
+        },
+        "country": {
+          "$ref": "#/definitions/pbCountry"
+        },
+        "city": {
+          "$ref": "#/definitions/pbCity"
+        },
+        "district": {
+          "$ref": "#/definitions/pbDistrict"
+        },
+        "ward": {
+          "$ref": "#/definitions/pbWard"
+        },
+        "image": {
+          "$ref": "#/definitions/pbImage"
+        },
+        "utilities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbUtility"
+          }
+        },
+        "furnitures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbFurniture"
+          }
+        }
+      },
+      "title": "Property"
+    },
+    "pbPropertyData": {
+      "type": "object",
+      "properties": {
+        "property": {
+          "$ref": "#/definitions/pbProperty"
+        }
+      }
+    },
+    "pbPropertyInput": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "brief": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "transaction_type": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "price_is_contact": {
+          "type": "string",
+          "format": "int64"
+        },
+        "down_payment": {
+          "type": "number",
+          "format": "double"
+        },
+        "contract_due": {
+          "type": "string",
+          "format": "int64"
+        },
+        "payment_due": {
+          "type": "string",
+          "format": "int64"
+        },
+        "time_begin_for_rent": {
+          "type": "string",
+          "format": "int64"
+        },
+        "direction": {
+          "type": "string"
+        },
+        "acreage": {
+          "type": "number",
+          "format": "double"
+        },
+        "address": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "number_of_rooms": {
+          "type": "string",
+          "format": "int64"
+        },
+        "number_of_baths": {
+          "type": "string",
+          "format": "int64"
+        },
+        "number_of_floors": {
+          "type": "string",
+          "format": "int64"
+        },
+        "utilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "furnitures": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "contact_name": {
+          "type": "string"
+        },
+        "contact_phone": {
+          "type": "string"
+        },
+        "contact_message": {
+          "type": "string"
+        },
+        "feature": {
+          "type": "string",
+          "format": "int64"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "type": "string"
+        },
+        "is_visible": {
+          "type": "string",
+          "format": "int64"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "investor_id": {
+          "type": "string"
+        },
+        "type_of_property_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "project_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "country_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "city_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "district_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ward_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "image_id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbStreet": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "city_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "district_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbStreetFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbStreetStatus"
+        }
+      },
+      "title": "Distric"
+    },
+    "pbStreetData": {
+      "type": "object",
+      "properties": {
+        "street": {
+          "$ref": "#/definitions/pbStreet"
+        }
+      }
+    },
+    "pbStreetFeature": {
+      "type": "string",
+      "enum": [
+        "street_feature_off",
+        "street_feature_on"
+      ],
+      "default": "street_feature_off",
+      "description": "`street_feature` only has two options: on or off",
+      "title": "street_feature"
+    },
+    "pbStreetInput": {
+      "type": "object",
+      "properties": {
+        "city_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "district_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbStreetFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbStreetStatus"
+        }
+      }
+    },
+    "pbStreetStatus": {
+      "type": "string",
+      "enum": [
+        "street_status_disable",
+        "street_status_enable"
+      ],
+      "default": "street_status_disable",
+      "description": "`street_status` only has two options: enable or disable",
+      "title": "street_status"
+    },
+    "pbStreetsData": {
+      "type": "object",
+      "properties": {
+        "streets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbStreet"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbTypeOfPropertiesData": {
+      "type": "object",
+      "properties": {
+        "type_of_properties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbTypeOfProperty"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbTypeOfProperty": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbTypeOfPropertyFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbTypeOfPropertyStatus"
+        }
+      },
+      "title": "Distric"
+    },
+    "pbTypeOfPropertyData": {
+      "type": "object",
+      "properties": {
+        "type_of_property": {
+          "$ref": "#/definitions/pbTypeOfProperty"
+        }
+      }
+    },
+    "pbTypeOfPropertyFeature": {
+      "type": "string",
+      "enum": [
+        "type_of_property_feature_off",
+        "type_of_property_feature_on"
+      ],
+      "default": "type_of_property_feature_off",
+      "description": "`type_of_property_feature` only has two options: on or off",
+      "title": "type_of_property_feature"
+    },
+    "pbTypeOfPropertyInput": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbTypeOfPropertyFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbTypeOfPropertyStatus"
+        }
+      }
+    },
+    "pbTypeOfPropertyStatus": {
+      "type": "string",
+      "enum": [
+        "type_of_property_status_disable",
+        "type_of_property_status_enable"
+      ],
+      "default": "type_of_property_status_disable",
+      "description": "`type_of_property_status` only has two options: enable or disable",
+      "title": "type_of_property_status"
+    },
+    "pbUpdateCityRequest": {
+      "type": "object",
+      "properties": {
+        "city_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "city": {
+          "$ref": "#/definitions/pbCity"
+        }
+      }
+    },
+    "pbUpdateCityResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbCityData"
+        }
+      }
+    },
+    "pbUpdateCountryRequest": {
+      "type": "object",
+      "properties": {
+        "country_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "country": {
+          "$ref": "#/definitions/pbCountry"
+        }
+      }
+    },
+    "pbUpdateCountryResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbCountryData"
+        }
+      }
+    },
+    "pbUpdateDistrictRequest": {
+      "type": "object",
+      "properties": {
+        "district_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "district": {
+          "$ref": "#/definitions/pbDistrict"
+        }
+      }
+    },
+    "pbUpdateDistrictResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbDistrictData"
+        }
+      }
+    },
+    "pbUpdateFurnitureRequest": {
+      "type": "object",
+      "properties": {
+        "furniture_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "furniture": {
+          "$ref": "#/definitions/pbFurniture"
+        }
+      }
+    },
+    "pbUpdateFurnitureResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbFurnitureData"
+        }
+      }
+    },
+    "pbUpdateImageRequest": {
+      "type": "object",
+      "properties": {
+        "image_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "image": {
+          "$ref": "#/definitions/pbImage"
+        }
+      }
+    },
+    "pbUpdateImageResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbImageData"
+        }
+      }
+    },
+    "pbUpdateInvestorRequest": {
+      "type": "object",
+      "properties": {
+        "investor_id": {
+          "type": "string"
+        },
+        "investor_input": {
+          "$ref": "#/definitions/pbInvestorInput"
+        }
+      }
+    },
+    "pbUpdateInvestorResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbInvestorData"
+        }
+      }
+    },
+    "pbUpdateProjectRequest": {
+      "type": "object",
+      "properties": {
+        "project_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "project_input": {
+          "$ref": "#/definitions/pbProjectInput"
+        }
+      }
+    },
+    "pbUpdateProjectResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbProjectData"
+        }
+      }
+    },
+    "pbUpdatePropertyRequest": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "brief": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "transaction_type": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "price_is_contact": {
+          "type": "string",
+          "format": "int64"
+        },
+        "down_payment": {
+          "type": "number",
+          "format": "double"
+        },
+        "contract_due": {
+          "type": "string",
+          "format": "int64"
+        },
+        "payment_due": {
+          "type": "string",
+          "format": "int64"
+        },
+        "time_begin_for_rent": {
+          "type": "string",
+          "format": "int64"
+        },
+        "direction": {
+          "type": "string"
+        },
+        "acreage": {
+          "type": "number",
+          "format": "double"
+        },
+        "address": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "longitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "number_of_rooms": {
+          "type": "string",
+          "format": "int64"
+        },
+        "number_of_baths": {
+          "type": "string",
+          "format": "int64"
+        },
+        "number_of_floors": {
+          "type": "string",
+          "format": "int64"
+        },
+        "utilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "furnitures": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "contact_name": {
+          "type": "string"
+        },
+        "contact_phone": {
+          "type": "string"
+        },
+        "contact_message": {
+          "type": "string"
+        },
+        "feature": {
+          "type": "string",
+          "format": "int64"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "type": "string"
+        },
+        "is_visible": {
+          "type": "string",
+          "format": "int64"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "investor_id": {
+          "type": "string"
+        },
+        "type_of_property_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "project_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "country_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "city_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "district_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ward_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "image_id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+
+    },
+    "pbUpdatePropertyResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbPropertyData"
+        }
+      }
+    },
+    "pbUpdateStatusOfPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "pbUpdateStatusOfPropertyResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbUpdateStreetRequest": {
+      "type": "object",
+      "properties": {
+        "street_input": {
+          "$ref": "#/definitions/pbStreetInput"
+        }
+      }
+    },
+    "pbUpdateStreetResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbStreetData"
+        }
+      }
+    },
+    "pbUpdateTypeOfPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "type_of_property_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "type_of_property": {
+          "$ref": "#/definitions/pbTypeOfProperty"
+        }
+      }
+    },
+    "pbUpdateTypeOfPropertyResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbTypeOfPropertyData"
+        }
+      }
+    },
+    "pbUpdateUtilityRequest": {
+      "type": "object",
+      "properties": {
+        "utility_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "utility": {
+          "$ref": "#/definitions/pbUtility"
+        }
+      }
+    },
+    "pbUpdateUtilityResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbUtilityData"
+        }
+      }
+    },
+    "pbUpdateVisibleOfPropertyRequest": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbUpdateVisibleOfPropertyResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        }
+      }
+    },
+    "pbUpdateWardRequest": {
+      "type": "object",
+      "properties": {
+        "ward_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ward_input": {
+          "$ref": "#/definitions/pbWardInput"
+        }
+      }
+    },
+    "pbUpdateWardResponse": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$ref": "#/definitions/pbMetaData"
+        },
+        "data": {
+          "$ref": "#/definitions/pbWardData"
+        }
+      }
+    },
+    "pbUtilitiesData": {
+      "type": "object",
+      "properties": {
+        "utilities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbUtility"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "pbUtility": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbUtilityFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbUtilityStatus"
+        }
+      },
+      "title": "Distric"
+    },
+    "pbUtilityData": {
+      "type": "object",
+      "properties": {
+        "utility": {
+          "$ref": "#/definitions/pbUtility"
+        }
+      }
+    },
+    "pbUtilityFeature": {
+      "type": "string",
+      "enum": [
+        "utility_feature_off",
+        "utility_feature_on"
+      ],
+      "default": "utility_feature_off",
+      "description": "`utility_feature` only has two options: on or off",
+      "title": "utility_feature"
+    },
+    "pbUtilityInput": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbUtilityFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbUtilityStatus"
+        }
+      }
+    },
+    "pbUtilityStatus": {
+      "type": "string",
+      "enum": [
+        "utility_status_disable",
+        "utility_status_enable"
+      ],
+      "default": "utility_status_disable",
+      "description": "`utility_status` only has two options: enable or disable",
+      "title": "utility_status"
+    },
+    "pbVersionResponse": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "pbWard": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "city_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "district_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbWardFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbWardStatus"
+        }
+      },
+      "title": "Distric"
+    },
+    "pbWardData": {
+      "type": "object",
+      "properties": {
+        "ward": {
+          "$ref": "#/definitions/pbWard"
+        }
+      }
+    },
+    "pbWardFeature": {
+      "type": "string",
+      "enum": [
+        "ward_feature_off",
+        "ward_feature_on"
+      ],
+      "default": "ward_feature_off",
+      "description": "`ward_feature` only has two options: on or off",
+      "title": "ward_feature"
+    },
+    "pbWardInput": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "city_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "district_id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "feature": {
+          "$ref": "#/definitions/pbWardFeature"
+        },
+        "order": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/pbWardStatus"
+        }
+      }
+    },
+    "pbWardStatus": {
+      "type": "string",
+      "enum": [
+        "ward_status_disable",
+        "ward_status_enable"
+      ],
+      "default": "ward_status_disable",
+      "description": "`ward_status` only has two options: enable or disable",
+      "title": "ward_status"
+    },
+    "pbWardsData": {
+      "type": "object",
+      "properties": {
+        "wards": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/pbWard"
+          }
+        },
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}
