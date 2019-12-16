@@ -143,6 +143,14 @@ ec-cb (from ec, turn left onto cb)
 
 ![text16557](https://cloud.githubusercontent.com/assets/1892250/19296198/1de51b4a-8ff7-11e6-8339-31eb6361338a.png)
 
+> Đối với beMaps, OSRM sẽ được sử dụng như sau:
+> - Dữ liệu đầu vào ở dạng **.pbf** từ OpenStreetMap
+> - Bước **Metric-independent preprocessing** sẽ được thực hiện dùng tool `osrm-extract` của OSRM
+> - Bước **Metric customization** sẽ được thực hiện bởi tool `osrm-customize` của OSRM
+> - Bước **Queries** sẽ sử dụng **MLD** trên đồ thị được xây dựng từ các bước trước để thực hiện việc tìm đường đi ngắn nhất.
+>
+> OSRM algorithms sẽ được thực thi thông qua việc sử dụng OSRM API. Trong đó 2 API sẽ được sử dụng cho beMaps là: **Direction** và **Distance Matrix**.
+
 
 
 
