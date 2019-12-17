@@ -86,7 +86,7 @@ Ngoại trừ *exclude*, số lượng *element* phải bằng chính xác số 
 |destinations|sử dụng địa điểm với chỉ mục đã cho làm đích|all (mặc định) / {index};{index}[;{index} ...]. 0 <= index < #locations|.../{profile}/13.388860,52.517037;13.397634,52.529407;13.428555,52.523219?**destinations=1,2**|
 |annotations|Trả về  thời lượng hoặc địa điểm hoặc cả thời lượng và địa điểm|duration (mặc định) / distance / hoặc duration,distance|annotations=duration,distance|
 |fallback_speed|Nếu không tìm thấy tuyến đường giữa các cặp nguồn - đích, tính khoảng cách đường chim bay rồi chia cho tốc độ này để tính toán thời lượng|fallback_speed > 0|fallback_speed=35.7|
-|fallback_coordinate|Khi sử dụng fallback_speed, sử dụng tọa độ do người dùng cung cấp hoặc vị trí lề đường (snap) để tính khoảng cách.| input (mặc định) / snnaped||
+|fallback_coordinate|Khi sử dụng fallback_speed, sử dụng tọa độ do người dùng cung cấp hoặc vị trí lề đường (snap) để tính khoảng cách.| input (mặc định) / snnaped|fallback_coordinate=snnaped|
 |scale_factor|Kết hợp với annotations=durations. Nhân duration với hệ số này |scale_factor > 0|scale_factor=3.14|
 
 Số lượng của *sources* và *destinations* nhỏ hơn hoặc bằng số  địa điểm đầu vào
@@ -255,11 +255,11 @@ Ngoài các tùy chọn chung đã giới thiệu ở phần **Request**, chúng
 |-|-|-|-|
 |alternatives|Nhận thêm các tuyến đường thay thế hay không hoặc nhận bao nhiêu tuyến đường thay thế. Dù vậy, kể cả khi được yêu cầu, số tuyến đường thay thế cũng không đảm bảo sẽ có trong kết quả|false (mặc định)/ true / hoặc số nguyên dương |alternatives=2 |
 |steps|Trả về các bước cho lộ trình |false (mặc định)|steps=true|
-|annotations|Trả về siêu dữ liệu (meta data) bổ sung cho mỗi tọa độ dọc tuyến đường|false (mặc định) / true / nodes / distance / duration / datasources / weight / speed| steps=true|
+|annotations|Trả về siêu dữ liệu (meta data) bổ sung cho mỗi tọa độ dọc tuyến đường|false (mặc định) / true / nodes / distance / duration / datasources / weight / speed| annotations=true|
 |geometries|Định dạng hình học tuyến đường được trả về (ảnh hưởng tổng quan và mỗi bước)| polyline (mặc định) / polyline6 / geojson | geometries=geojson|
 |overview|Thêm hình học tổng quan đầy đủ, đơn giản hóa theo mức thu phóng cao nhất có thể hiển thị hoặc không thêm bất cứ hình học nào| simplified (mặc định) / full / false|overview=false|
 |continue_straight|Buộc tuyến đường tiếp tục đi thẳng tại các điểm tham chiếu (*waypoints*) ràng buộc ở đó ngay cả khi nó sẽ nhanh hơn. Giá trị mặc định phụ thuộc vào *profile*|default  (mặc định) / true / false|continue_straight=true|
-|waypoints|Xử lý tọa độ đầu vào được chỉ định bởi các chỉ số đã cho làm điểm tham chiếu trong đối tượng *Match* được trả về. Mặc định coi tất cả các tọa độ đầu vào là điểm tham chiếu.|Định dạng: {index};{index};{index}...| |
+|waypoints|Xử lý tọa độ đầu vào được chỉ định bởi các chỉ số đã cho làm điểm tham chiếu trong đối tượng *Match* được trả về. Mặc định coi tất cả các tọa độ đầu vào là điểm tham chiếu.|Định dạng: {index};{index};{index}...| waypoints=0;1|
 
 ##### Ví dụ request
 
