@@ -1,4 +1,4 @@
-# **Sphinx* *search
+# **Sphinx** search
 
 ## Giới thiệu chung
 
@@ -26,7 +26,7 @@ Mọi project đều tạo ra một từ điển riêng, **Sphinx** cũng vậy.
 
 ### Index (chỉ mục)
 
-*Chỉ mục* (index) là *bộ sưu tập* (collection) các *tài liệu* (document) bán cấu trúc. Chúng có vẻ gần với các *bảng* (table) SQL hơn so với các *bộ sưu tập* (collection) Mongo, nhưng trong cốt lõi của chúng, chúng thực sự không có cấu trúc. Cấu trúc dữ liệu cơ bản là một *chỉ mục toàn văn* (full-text-index). Đó là một cấu trúc đặc biệt cho phép **Sphinx** phản hồi rất nhanh đối với một truy vấn như "cung cấp cho tôi các định danh của tất cả tài liệu đề cập đến từ khóa này hoặc từ khóa kia". Hoặc bất cứ thứ gì khác (bất kỳ thuộc tính bổ sung hoặc kho lưu trữ tài liệu hoặc thậm chí ngôn ngữ SQL hoặc HTTP, v.v...) mà **Sphinx* *cung cấp về cơ bản là một loại bổ sung trên cấu trúc dữ liệu cơ sở đó.
+*Chỉ mục* (index) là *bộ sưu tập* (collection) các *tài liệu* (document) bán cấu trúc. Chúng có vẻ gần với các *bảng* (table) SQL hơn so với các *bộ sưu tập* (collection) Mongo, nhưng trong cốt lõi của chúng, chúng thực sự không có cấu trúc. Cấu trúc dữ liệu cơ bản là một *chỉ mục toàn văn* (full-text-index). Đó là một cấu trúc đặc biệt cho phép **Sphinx** phản hồi rất nhanh đối với một truy vấn như "cung cấp cho tôi các định danh của tất cả tài liệu đề cập đến từ khóa này hoặc từ khóa kia". Hoặc bất cứ thứ gì khác (bất kỳ thuộc tính bổ sung hoặc kho lưu trữ tài liệu hoặc thậm chí ngôn ngữ SQL hoặc HTTP, v.v...) mà **Sphinx** cung cấp về cơ bản là một loại bổ sung trên cấu trúc dữ liệu cơ sở đó.
 
 Schema-wise, chỉ mục cố gắng kết hợp những điểm tốt nhất của schemaful và schemaless. Đối với các *cột* (column) định nghĩa kiểu trước, có thể sử dụng các thuộc tính được nhập tĩnh và nhận được hiệu quả tuyệt đối. Đối với dữ liệu động hơn, có thể đặt tất cả vào một thuộc tính JSON và vẫn có hiệu suất khá tốt.
 
@@ -42,13 +42,13 @@ Kể từ phiên bản 3.0.1, **Sphinx** vẫn yêu cầu một thuộc tính id
 
 ### Field (trường)
 
-Các *trường* là các văn bản mà **Sphinx* *lập chỉ mục và làm cho từ khóa có thể tìm kiếm được. Chúng luôn được lập chỉ mục, cũng như được lập chỉ mục toàn văn. Nội dung gốc không được lập chỉ mục của chúng cũng có thể được lưu trữ vào chỉ mục để truy xuất sau này. Theo mặc định, chúng được đánh chỉ mục và **Sphinx* *sẽ chỉ trả về các thuộc tính chứ không phải nội dung. Đánh chỉ mục với một cờ được lưu trữ trong lệnh CREATE TABLE hoặc trong tệp cấu hình ETL bằng archive_fields, cũng có thể nạp luôn khi INSERT.
+Các *trường* là các văn bản mà **Sphinx** lập chỉ mục và làm cho từ khóa có thể tìm kiếm được. Chúng luôn được lập chỉ mục, cũng như được lập chỉ mục toàn văn. Nội dung gốc không được lập chỉ mục của chúng cũng có thể được lưu trữ vào chỉ mục để truy xuất sau này. Theo mặc định, chúng được đánh chỉ mục và **Sphinx** sẽ chỉ trả về các thuộc tính chứ không phải nội dung. Đánh chỉ mục với một cờ được lưu trữ trong lệnh CREATE TABLE hoặc trong tệp cấu hình ETL bằng archive_fields, cũng có thể nạp luôn khi INSERT.
 
 Nội dung các *trường* đã lưu trữ được lưu trong một chỉ mục đặc biệt gọi là kho lưu trữ tài liệu, viết tắt là DocStore.
 
 ### Attribute (thuộc tính)
 
-Sphinx hỗ trợ các kiểu dữ liệu sau:
+**Sphinx** hỗ trợ các kiểu dữ liệu sau:
 
 |Kiểu dữ liệu|Khoảng giá trị|
 |-|-|
@@ -103,7 +103,7 @@ Greenice gần đây cũng sử dụng **Sphinx** cho các cửa *hàng* kinh do
 
 Nếu chúng ta cần các chức năng tìm kiếm thông thường, và không cần các tính năng bổ sung như trực quan hoá dữ liệu và phân tích, hãy sử dụng Sphinx. Nó khá nhanh và đầy sức mạnh cho khả năng index và truy vấn một khối lượng lớn các tài liệu mả chỉ sử dụng giới hạn nguồn tài nguyên máy tính, không giống như Elasticsearch, tiêu thụ khá nhiều bộ nhớ.
 
-Một trong những ví dụ đó là Boardreader, **Sphinx* *có thể index tới 16 tỷ tài liệu thông qua 37 thiết bị.
+Một trong những ví dụ đó là Boardreader, **Sphinx** có thể index tới 16 tỷ tài liệu thông qua 37 thiết bị.
 
 ## Nhược điểm
 
@@ -113,7 +113,7 @@ Một trong những ví dụ đó là Boardreader, **Sphinx* *có thể index t�
 
 **Sphinx** được thiết kế đặc biệt để tích hợp tốt với các cơ sở dữ liệu SQL, cũng như có thể dễ dàng truy cập bằng scripting languages. Tuy nhiên, **Sphinx** không phụ thuộc và cũng không yêu cầu bất kỳ database cụ thể nào để hoạt động.
 
-Lập trình viên có thể truy cập vào **Sphinx* *daemon (searchd) bằng cách sử dụng một trong ba phương pháp khác nhau để truy cập:
+Lập trình viên có thể truy cập vào **Sphinx** daemon (searchd) bằng cách sử dụng một trong ba phương pháp khác nhau để truy cập:
 
 - Qua MySQL network protocol (sử dụng một ngôn ngữ có tên là SphinxQL)
 - Thông qua API tìm kiếm bản địa (SphinxAPI)
@@ -128,7 +128,7 @@ Nhiều công ty trên thế giới sử dụng Elastic cho ứng dụng. Có th
 
 ### So sánh tính chất hệ thống
 
-|Tên |  **Sphinx* *|Elastic search|
+|Tên |  Sphinx |Elastic search|
 |-|-|-|
 | Mô tả| Công cụ tìm kiếm mã nguồn mở phục vụ tìm kiếm dữ liệu từ nhiều nguồn| Công cụ tìm kiếm và phân tích hiện đại, sử dụng RESTful|
 | Mô hình cơ sở dữ liệu chính| [Công cụ tìm kiếm](https://db-engines.com/en/article/Search+Engines)| [Công cụ tìm kiếm](https://db-engines.com/en/article/Search+Engines)|
