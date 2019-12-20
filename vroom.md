@@ -11,7 +11,7 @@ VROOM (viết tắt của Vehicle Routing Open-source Optimization Machine) là 
 - Tìm đường khá tốt với thời gian tính toán thấp.
 - Có thể  mở rộng quy mô để xử lý các trường hợp lớn
 
-### Mở
+### TÍnh mở
 
 - Giấy phép BSD
 - Dựa trên dữ liệu của OpenStreetMap
@@ -26,6 +26,14 @@ VROOM (viết tắt của Vehicle Routing Open-source Optimization Machine) là 
 
 VROOM cung cấp một API để tìm đường đi ngắn nhất qua các điểm người dùng yêu cầu. Lộ trình có thể  không đi qua các điểm theo thứ tự.
 
+### Cú pháp
+
+```
+POST: <domain>
+```
+
+Trong đó: *domain* là tên miền hoặc địa chỉ máy chủ.
+
 ### Đầu vào của API
 
 Đầu vào của API là 1 đầu vào tiêu chuẩn (đối tượng trong request body) hoặc 1 tệp định dạng json. Nếu sử dụng tệp, thêm cờ *-i*.
@@ -36,7 +44,8 @@ VROOM cung cấp một API để tìm đường đi ngắn nhất qua các đi�
 |-|-|-|
 |jobs|Có|mảng các đối tượng *job* mô tả các địa điểm muốn đi qua|
 |vehicles|Có|mảng các đối tượng *vehicle* mô tả các phương tiện di chuyển|
-|matrix|Không|Ma trận 2 chiều|
+|matrix|Không|Ma trận 2 chiều chứa thời gian di chuyển tùy chỉnh thay thế |
+
 #### Job
 
 Mỗi đối tượng *job* có các thuộc tính sau:
@@ -81,7 +90,7 @@ Mỗi đối tượng *vehicle* có các thuộc tính sau:
 
 ##### Job ưu tiên
 
-Có thể đặt giá trị ưu tiên cho *job*
+Có thể đặt giá trị ưu tiên cho *job* với thược tính *priority*.
 
 ##### Khung thời gian
 
@@ -95,10 +104,6 @@ Việc không có khung thời gian trong đầu vào có nghĩa là không áp 
 #### Matrix
 
 Là một ma trận thời gian di chuyển tùy chỉnh thay thế cho ma trận thời gian di chuyển được tính toán bởi công cụ định tuyến. Do đó, nếu một ma trận tùy chỉnh được cung cấp, các thuộc tính *location*, *start* và *end* sẽ trở thành tùy chọn. Thay vì tọa độ, chỉ số hàng và cột được cung cấp với *_index được sử dụng trong quá trình tối ưu hóa.
-
-
-
-
 
 ### Đầu ra của API
 
@@ -159,7 +164,7 @@ Các thuộc tính của *step*:
 |location|Không|Mang tọa độ cho step này|
 |job|Không|id của *job* tại step này|
 |waiting_time|Không|Thời gian đã đợi tính đến step này|
-|distance|ắt buộc nếu sử dụng cờ *-g*|Độ dài quãng đường đã đi tính đến step này|
+|distance|Bắt buộc nếu sử dụng cờ *-g*|Độ dài quãng đường đã đi tính đến step này|
 
 ### Ví dụ
 
