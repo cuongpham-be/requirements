@@ -45,6 +45,7 @@ Trong đó: *domain* là tên miền hoặc địa chỉ máy chủ.
 |jobs|Có|mảng các đối tượng *job* mô tả các địa điểm muốn đi qua|
 |vehicles|Có|mảng các đối tượng *vehicle* mô tả các phương tiện di chuyển|
 |matrix|Không|Ma trận 2 chiều chứa thời gian di chuyển tùy chỉnh thay thế |
+|options|Không|Chứa các cờ như *-g*, *-i* phục vụ nhiều mục đích khác nhau|
 
 #### Job
 
