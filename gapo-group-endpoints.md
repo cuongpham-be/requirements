@@ -72,14 +72,66 @@
   - user_id
   - type (all, notification)
 
+### Leave group
+- Endpoint: `POST /v1/groups/:group_id/leave`
+- Body:
+  - user_id
+  
+### Modify member role
+- Endpoint: `POST /v1/groups/:group_id/member_roles`
+- Body:
+  - user_id
+  - new_role
+
 ## Group posts
+### Create new post
+- Endpoint: `POST /v1/groups/:group_id/posts`
+
+### Edit a post
+- Endpoint: `PUT /v1/groups/:group_id/posts/:post_id`
+
+### Remove post
+- Endpoint: `DELETE /v1/groups/:group_id/posts/:post_id`
+
+### Pin a post
+- Endpoint: `POST /v1/groups/:group_id/pin_post`
+- Body:
+  - post_id
+ 
+### Toggle post notification
+- Endpoint: `POST /v1/groups/:group_id/toggle_post_notification`
+- Body:
+  - post_id
+  - status (on, off)
+  
+### Toggle post commenting
+- Endpoint: `POST /v1/groups/:group_id/toggle_post_commenting`
+- Body:
+  - post_id
+  - status (on, off)
 
 ## Group badges
+### Assign badges to member
+- Endpoint: `POST /v1/groups/:group_id/member_badges`
+- Body:
+  - user_id
+  - badge_ids
+
+### Remove badges from member
+- Endpoint: `POST /v1/groups/:group_id/remove_member_badges`
+- Body:
+  - user_id
+  - badge_ids
 
 ## Group privacy
-
-## Group roles and permissions
+### Adjust group privacy
+- Endpoint: `POST /v1/groups/:group_id/privacy`
 
 ## Group search
+### Local search
+- Endpoint: `GET /v1/groups/:group_id/search`
 
 ## Group insights
+### Get group insights
+- Endpoint: `GET /v1/groups/:group_id/insights`
+
