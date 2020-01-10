@@ -39,7 +39,7 @@
   - user_id
 
 ### Confirm member request
-- Endpoint: `POST /v1/groups/:group_id/selft_request_confirmation`
+- Endpoint: `POST /v1/groups/:group_id/self_request_confirmation`
 - Body:
   - request_id
   - type (accepted, denied)
