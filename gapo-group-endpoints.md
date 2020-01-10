@@ -33,6 +33,12 @@
 - Endpoint: `POST /v1/groups/:group_id/archive`
 
 ## Group members
+### Get members:
+- Endpoint: `GET /v1/groups/:group_id/members`
+- Params:
+  - order_by
+  - search_pattern
+  
 ### Request to join
 - Endpoint: `POST /v1/groups/:group_id/self_request`
 - Body:
@@ -56,9 +62,15 @@
   - user_id
 
 ### Remove member from group
-- Endpoint: ``
+- Endpoint: `POST /v1/groups/:group_id/member_removal`
 - Body:
   - user_id
+
+### Mute member
+- Endpoint: `POST /v1/groups/:group_id/member_mute`
+- Body:
+  - user_id
+  - type (all, notification)
 
 ## Group posts
 
